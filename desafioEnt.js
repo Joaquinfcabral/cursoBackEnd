@@ -19,6 +19,7 @@ class ProductManager {
         const productsExists = this.products.findIndex((product) => product.code === data.code) 
 
         if(productsExists !== -1) {
+            console.log("Error: El código de producto ya está en uso")
             return "Error: El código de producto ya está en uso"
         }
 
@@ -54,7 +55,6 @@ class ProductManager {
 const manager = new ProductManager()
 
 const body1 = { 
-    id: 1,
     title: 'Iphone 14',
     description:'Nuevo Iphone 14, lo mejor de Apple' ,
     price: `${1100}`,
@@ -64,7 +64,6 @@ const body1 = {
 }
 
 const body2 = {
-    id: 2,
     title: 'Iphone 8',
     description:'Un modelo antiguo pero confiable' ,
     price: `${300}`,
@@ -74,7 +73,6 @@ const body2 = {
     } 
 
 const body3 = {
-    id: 3,
     title: 'Iphone 13',
     description:'No es distinto al 14 pero es más viejo' ,
     price: `${800}`,
@@ -82,6 +80,10 @@ const body3 = {
     code: 4,
     stock: 100,
     } 
+
+
+
+
 
 manager.addProduct(body1);
 manager.addProduct(body2);
